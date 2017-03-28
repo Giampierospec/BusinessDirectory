@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "BusinessDirectoryConnections": "Data Source=(localdb)\\ProjectsV13;Database=DirectoryDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  }
+}
