@@ -8,7 +8,7 @@ using BusinessDirectory.Models;
 namespace BusinessDirectory.Migrations
 {
     [DbContext(typeof(BusinessDbContext))]
-    [Migration("20170330123818_InitialDatabase")]
+    [Migration("20170330145414_InitialDatabase")]
     partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,8 @@ namespace BusinessDirectory.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
+
+                    b.Property<int?>("CategoryId");
 
                     b.Property<int?>("CityId");
 
@@ -39,6 +41,8 @@ namespace BusinessDirectory.Migrations
                     b.Property<int>("UserName");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("CityId");
 
@@ -71,6 +75,10 @@ namespace BusinessDirectory.Migrations
 
             modelBuilder.Entity("BusinessDirectory.Models.Business", b =>
                 {
+                    b.HasOne("BusinessDirectory.Models.Category")
+                        .WithMany("Businesses")
+                        .HasForeignKey("CategoryId");
+
                     b.HasOne("BusinessDirectory.Models.City")
                         .WithMany("Businesses")
                         .HasForeignKey("CityId");

@@ -42,6 +42,7 @@ namespace BusinessDirectory.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Address = table.Column<string>(nullable: true),
+                    CategoryId = table.Column<int>(nullable: true),
                     CityId = table.Column<int>(nullable: true),
                     CompanyName = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
@@ -54,12 +55,23 @@ namespace BusinessDirectory.Migrations
                 {
                     table.PrimaryKey("PK_Businesses", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Businesses_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Businesses_Cities_CityId",
                         column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Businesses_CategoryId",
+                table: "Businesses",
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Businesses_CityId",

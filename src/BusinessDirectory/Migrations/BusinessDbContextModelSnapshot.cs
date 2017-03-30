@@ -23,6 +23,8 @@ namespace BusinessDirectory.Migrations
 
                     b.Property<string>("Address");
 
+                    b.Property<int?>("CategoryId");
+
                     b.Property<int?>("CityId");
 
                     b.Property<string>("CompanyName");
@@ -38,6 +40,8 @@ namespace BusinessDirectory.Migrations
                     b.Property<int>("UserName");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("CityId");
 
@@ -70,6 +74,10 @@ namespace BusinessDirectory.Migrations
 
             modelBuilder.Entity("BusinessDirectory.Models.Business", b =>
                 {
+                    b.HasOne("BusinessDirectory.Models.Category")
+                        .WithMany("Businesses")
+                        .HasForeignKey("CategoryId");
+
                     b.HasOne("BusinessDirectory.Models.City")
                         .WithMany("Businesses")
                         .HasForeignKey("CityId");
