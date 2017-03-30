@@ -16,7 +16,5 @@ namespace BusinessDirectory.Models
         public double Longitude { get; set; }
         public string Description { get; set; }
         public int UserName { get; set; }
-        public ICollection<Category> Categories { get; set; }
-        public ICollection<City> cities { get; set; }
     }
 }

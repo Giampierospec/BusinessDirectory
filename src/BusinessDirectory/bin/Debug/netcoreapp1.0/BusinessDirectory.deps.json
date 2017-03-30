@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "fa66a8c93d6e2674de44b462cf8ada85c1e83cfa"
+    "signature": "9604e076f6a89b912e55dbe19c50f565b697725b"
   },
   "compilationOptions": {
     "defines": [
@@ -24,6 +24,7 @@
           "Microsoft.AspNetCore.Mvc": "1.0.1",
           "Microsoft.EntityFrameworkCore": "1.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
+          "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Configuration": "1.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
           "Microsoft.AspNetCore.StaticFiles": "1.1.0",
@@ -1132,6 +1133,18 @@
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.0",
+          "System.Diagnostics.Debug": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Logging.Debug.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Logging.Debug.dll": {}
         }
       },
       "Microsoft.Extensions.ObjectPool/1.0.0": {
@@ -3940,6 +3953,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-GN4gFFONP12KbFEG9rNFpXuz6D2Tybcm8+c1wilaQ1eSl9zVX0gVRrKw/YRwxdwbM3eK7nWfRRqJaQPzOjtLnA=="
+    },
+    "Microsoft.Extensions.Logging.Debug/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V8fP8pGJxieGa1DAYOF1RX+cCGGqdOGNoAQUzxmy27+qNzbHB/cUXc7mCZT72jPZMB4U12zSVWlIt26GMsUIOg=="
     },
     "Microsoft.Extensions.ObjectPool/1.0.0": {
       "type": "package",
