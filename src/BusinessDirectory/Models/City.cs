@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BusinessDirectory.Models
 {
-    public class Categories
+    public class City
     {
         public int Id { get; set; }
-        public string Category { get; set; }
+        public string Name { get; set; }
     }
 }

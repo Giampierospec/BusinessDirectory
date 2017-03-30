@@ -11,12 +11,12 @@ namespace BusinessDirectory.Models
         public int Id { get; set; }
         public string CompanyName { get; set; }
         public string Address { get; set; }
-        public string City { get; set; }
         public string Phone { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public string Description { get; set; }
         public int UserName { get; set; }
-        public ICollection<Categories> Categories { get; set; }
+        public ICollection<Category> Categories { get; set; }
+        public ICollection<City> cities { get; set; }
     }
 }
