@@ -18,7 +18,6 @@ namespace BusinessDirectory.Models
         }
         public DbSet<Business> Businesses { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<City> Cities { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

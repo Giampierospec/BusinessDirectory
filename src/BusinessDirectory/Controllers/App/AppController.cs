@@ -24,5 +24,21 @@ namespace BusinessDirectory.Controllers.App
             var data = _context.Businesses.ToList();
             return View(data);
         }
+        public IActionResult PublishBusiness()
+        {
+            return View();
+        }
+        public IActionResult Categories()
+        {
+            return View();
+        }
+        public IActionResult MyBusinesses()
+        {
+            return View();
+        }
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }

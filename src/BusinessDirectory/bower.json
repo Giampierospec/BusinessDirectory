@@ -8,7 +8,9 @@
     "bootswatch": "~3.3.7",
     "jquery-validate": "~1.16.0",
     "font-awesome": "~4.7.0",
-    "jquery-validation-unobtrusive": "~3.2.6"
+    "jquery-validation-unobtrusive": "~3.2.6",
+    "angular": "~1.6.4",
+    "angular-route": "~1.6.4"
 
   }
 }

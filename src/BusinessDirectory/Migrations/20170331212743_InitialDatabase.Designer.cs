@@ -8,7 +8,7 @@ using BusinessDirectory.Models;
 namespace BusinessDirectory.Migrations
 {
     [DbContext(typeof(BusinessDbContext))]
-    [Migration("20170330145414_InitialDatabase")]
+    [Migration("20170331212743_InitialDatabase")]
     partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,8 +26,6 @@ namespace BusinessDirectory.Migrations
 
                     b.Property<int?>("CategoryId");
 
-                    b.Property<int?>("CityId");
-
                     b.Property<string>("CompanyName");
 
                     b.Property<string>("Description");
@@ -38,13 +36,11 @@ namespace BusinessDirectory.Migrations
 
                     b.Property<string>("Phone");
 
-                    b.Property<int>("UserName");
+                    b.Property<string>("UserName");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("CityId");
 
                     b.ToTable("Businesses");
                 });
@@ -61,27 +57,11 @@ namespace BusinessDirectory.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("BusinessDirectory.Models.City", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cities");
-                });
-
             modelBuilder.Entity("BusinessDirectory.Models.Business", b =>
                 {
                     b.HasOne("BusinessDirectory.Models.Category")
                         .WithMany("Businesses")
                         .HasForeignKey("CategoryId");
-
-                    b.HasOne("BusinessDirectory.Models.City")
-                        .WithMany("Businesses")
-                        .HasForeignKey("CityId");
                 });
         }
     }

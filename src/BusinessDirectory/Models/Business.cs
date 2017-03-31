@@ -15,6 +15,6 @@ namespace BusinessDirectory.Models
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public string Description { get; set; }
-        public int UserName { get; set; }
+        public string UserName { get; set; }
     }
 }

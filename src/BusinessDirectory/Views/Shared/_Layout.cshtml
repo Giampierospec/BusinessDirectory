@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="~/lib/bootswatch/lumen/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/lib/bootswatch/flatly/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
     <meta name="viewport" content="width=device-width" />
     <title> Business Directory - @ViewBag.Title</title>
@@ -20,13 +20,14 @@
                 <a class="navbar-brand" asp-controller="App" asp-action="Index">BusinessDirectory</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#">Categorias</a></li>
-                <li><a href="#">Publicar Negocio</a></li>
-                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a asp-controller="App" asp-action="Categories"><i class="fa fa-bars"></i> Categorias</a></li>
+                <li><a asp-controller="App" asp-action="PublishBusiness"><i class="fa fa-upload"></i> Publicar Negocio</a></li>
+                <li><a asp-controller="App" asp-action="About"><i class="fa fa-user"></i> Sobre el Autor</a></li>
+                <li><a asp-controller="App" asp-action="MyBusinesses"><i class="fa fa-sitemap"></i> Mis negocios</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Registrarse</a></li>
-                <li><a href="#">Iniciar Sesion</a></li>
+                <li><a href="#"><i class="fa fa-sign-in"></i> Registrarse</a></li>
+                <li><a href="#"><i class="fa fa-sign-in"></i> Iniciar Sesion</a></li>
             </ul>
         </div>
     </nav>
@@ -38,7 +39,7 @@
         
     <footer class="container-fluid">
         <div class="navbar navbar-default navbar-fixed-bottom">
-            <p class="text-center">Business Directory @date.Year</p>
+            <p class="text-center text-muted">Business Directory @date.Year</p>
      </div>
         <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
