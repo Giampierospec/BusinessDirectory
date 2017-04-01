@@ -29,7 +29,8 @@ namespace BusinessDirectory.Models
         {
           return  _context.Categories.
                 Include(c => c.Businesses)
-                .Where(c=> c.Name == category);
+                .Where(c=> c.Name == category)
+                .ToList();
         }
 
         public IEnumerable<Business> GetBusinessesByUserName(string userName)
