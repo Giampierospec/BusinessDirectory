@@ -1,0 +1,36 @@
+﻿<!-- Here i show the details about the business-->
+<div>
+    <div class="row margin-details text-center">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="text-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
+            <wait-cursor display-when="vm.isBusy"></wait-cursor>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2>{{vm.business.companyName}}</h2>
+                </div>
+                <div class="panel-body">
+                    <p><strong>Dirección: </strong>{{vm.business.address}}</p>
+                    <p><strong>Teléfono: </strong>{{vm.business.phone}}</p>
+                    <p><strong>Descripción: </strong>{{vm.business.description}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <div id="map">
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-6 col-md-offset-3">
+            <a ng-href="#/" class="btn btn-primary"><i class="fa fa-backward"></i> Regresar</a>
+        </div>
+    </div>
+</div>
+

@@ -1,11 +1,20 @@
-﻿@{ 
+﻿@{
     ViewBag.Title = "Home";
 }
 
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="jumbotron text-center margin-jb">
-            <h1>Negocios Registrados</h1>
-        </div>
-    </div>
+@section Scripts{
+    <script src="~/lib/underscore/underscore-min.js"></script>
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular-route/angular-route.min.js"></script>
+    <script src="~/lib/gmaps/gmaps.min.js"></script>
+    <script src="~/js/loadingCircle.js"></script>
+    <script src="~/js/business-module.js"></script>
+    <script src="~/js/businessControllerFull.js"></script>
+    <script src="~/js/businessDetailsController.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgKLg_jKyw9Vz5HUFua2DySWODYBzMIww">
+</script>
+    }
+    <div ng-app="business-module">
+    <div ng-view></div>
 </div>

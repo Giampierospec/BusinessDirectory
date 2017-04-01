@@ -49,5 +49,15 @@ namespace BusinessDirectory.Models
                 .Where(b => b.CompanyName == companyName)
                 .FirstOrDefault();
         }
+
+        public IEnumerable<Category> GetAllCategories()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddBusiness(string category, Business newBusiness)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

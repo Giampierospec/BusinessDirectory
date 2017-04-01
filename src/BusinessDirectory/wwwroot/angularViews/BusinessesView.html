@@ -1,1 +1,39 @@
-﻿
+﻿<div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="text-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
+            <div class="jumbotron text-center margin-jb">
+                <h1>Negocios Registrados</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <wait-cursor display-when="vm.isBusy"></wait-cursor>
+            <div class="scroll-div">
+                <div ng-repeat="business in vm.businesses" class="panel panel-primary">
+                    <div class="panel-heading text-center">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p>{{business.companyName}}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <a ng-href="#!/details/{{business.companyName}}">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+  </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div id="map">
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+
