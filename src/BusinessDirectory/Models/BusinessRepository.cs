@@ -42,5 +42,12 @@ namespace BusinessDirectory.Models
         {
             return (await _context.SaveChangesAsync()) > 0;
         }
+
+        public Business GetBusinessByName(string companyName)
+        {
+            return _context.Businesses
+                .Where(b => b.CompanyName == companyName)
+                .FirstOrDefault();
+        }
     }
 }

@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using BusinessDirectory.Models;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using BusinessDirectory.ViewModels;
 
 namespace BusinessDirectory
 {
@@ -35,6 +37,7 @@ namespace BusinessDirectory
         {
             services.AddSingleton(_config);
             services.AddDbContext<BusinessDbContext>();
+            services.AddScoped<IBusinessRepository, BusinessRepository>();
             services.AddMvc(config =>
             {
                 if (_env.IsProduction())
@@ -55,6 +58,9 @@ namespace BusinessDirectory
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,
             BusinessSeedData seeder)
         {
+            Mapper.Initialize(config => {
+                config.CreateMap<BusinessViewModel, Business>().ReverseMap();
+            });
             loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
