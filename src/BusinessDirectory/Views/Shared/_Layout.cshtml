@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     DateTime date = DateTime.Now;
 }
 <!DOCTYPE html>
@@ -6,10 +6,10 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="~/lib/bootswatch/flatly/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/css/site.css"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/lib/bootswatch/flatly/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
     <meta name="viewport" content="width=device-width" />
     <title> Business Directory - @ViewBag.Title</title>
 </head>
@@ -35,15 +35,16 @@
         @RenderBody()
     </div>
 
-    
-        
+
+
     <footer class="container-fluid">
         <div class="navbar navbar-default navbar-fixed-bottom">
             <p class="text-center text-muted">Business Directory @date.Year</p>
-     </div>
-        <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="~/js/site.js"></script>
-        @RenderSection("scripts", false)
+        </div>
+    </footer>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>
