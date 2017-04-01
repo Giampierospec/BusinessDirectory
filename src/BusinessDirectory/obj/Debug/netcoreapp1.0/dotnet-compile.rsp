@@ -204,6 +204,7 @@ C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirecto
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Startup.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Controllers\Admin\AdminController.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Controllers\Api\BusinessController.cs
+C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Controllers\Api\CategoryController.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Controllers\App\AppController.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\20170331212743_InitialDatabase.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\20170331212743_InitialDatabase.Designer.cs
@@ -215,3 +216,4 @@ C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirecto
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Models\Category.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Models\IBusinessRepository.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\ViewModels\BusinessViewModel.cs
+C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\ViewModels\CategoryViewModel.cs

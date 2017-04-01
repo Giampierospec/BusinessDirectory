@@ -52,11 +52,7 @@ namespace BusinessDirectory.Controllers.Api
                 return BadRequest("Ocurrio un error");
             }
         }
-        [HttpPost("api/business/{categoryName}")]
-        public IActionResult Post(string categoryName)
-        {
-
-        }
+       
 
     }
 }

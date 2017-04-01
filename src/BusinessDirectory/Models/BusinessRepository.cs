@@ -52,7 +52,10 @@ namespace BusinessDirectory.Models
 
         public IEnumerable<Category> GetAllCategories()
         {
-            throw new NotImplementedException();
+            _logger.LogInformation("Buscando todas las categorias...");
+            return _context.
+                Categories
+                .ToList();
         }
 
         public void AddBusiness(string category, Business newBusiness)
