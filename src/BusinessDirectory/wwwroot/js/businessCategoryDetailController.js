@@ -1,11 +1,11 @@
-﻿//businessDetailsController.js
+﻿//businessCategoryDetailController.js
 (function () {
-    angular.module("business-module")
-            .controller("businessDetailsController", businessDetailsController);
+    angular.module("app-category")
+            .controller("businessCategoryDetailController", businessCategoryDetailController);
 
-    function businessDetailsController($routeParams, $http) {
+    function businessCategoryDetailController($routeParams, $http) {
         var vm = this;
-         vm.companyName = $routeParams.companyName;
+        vm.companyName = $routeParams.companyName;
         vm.business = {};
         var url = "/api/business/" + vm.companyName;
         vm.errorMessage = "";
@@ -15,6 +15,7 @@
         .then(function (response) {
             //success
             angular.copy(response.data, vm.business);
+            $("body").css("background", "url('')");
             _showTheMap(vm.business);
         }, function (error) {
             //failure
@@ -35,13 +36,13 @@
             success: function (position) {
                 map.setCenter(position.coords.latitude, position.coords.longitude);
             },
-            error: function(error) {
-                alert('Geolocalizacion fallo por este error: '+error.message);
+            error: function (error) {
+                alert('Geolocalizacion fallo por este error: ' + error.message);
             },
-            not_supported: function() {
+            not_supported: function () {
                 alert("Tu navegador no soporta geolocalizacion");
             },
-            always: function() {
+            always: function () {
                 console.log("Listo!");
             }
         });

@@ -13,11 +13,19 @@
                 <div class="scroll-div">
                     <div ng-repeat="business in vm.businesses" class="panel panel-primary">
                         <div class="panel-heading">
-                            <p>{{business.companyName}}</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>{{business.companyName}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <a ng-href="#!/detailsBusiness/{{business.companyName}}">Detalles</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="row">

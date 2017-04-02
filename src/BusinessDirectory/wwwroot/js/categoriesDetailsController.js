@@ -55,6 +55,10 @@
                 title: bs.companyName,
                 infoWindow: {
                     content: "<p>" + bs.companyName + "</p>"
+                },
+                click: function (e) {
+                    map.setCenter(Number(bs.latitude), Number(bs.longitude))
+                    map.setZoom(16);
                 }
             });
         }

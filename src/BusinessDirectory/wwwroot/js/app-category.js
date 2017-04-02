@@ -13,6 +13,11 @@
                     controllerAs: "vm",
                     templateUrl:"/angularViews/categoriesDetails.html"
                 });
+                $routeProvider.when("/detailsBusiness/:companyName", {
+                    controller: "businessCategoryDetailController",
+                    controllerAs: "vm",
+                    templateUrl:"/angularViews/businessDetails.html"
+                });
                 $routeProvider.otherwise({ redirectTo: "/" });
             });
 })();
