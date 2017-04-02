@@ -52,7 +52,13 @@ namespace BusinessDirectory.Controllers.Api
                 return BadRequest("Ocurrio un error");
             }
         }
-       
+        [HttpGet("api/category/{categoryName}/business")]
+        public IActionResult GetBusinessByCategory(string categoryName)
+        {
+            var result = _repository.GetCategoryByName(categoryName);
+            return Ok(Mapper.Map<IEnumerable<BusinessViewModel>>(result.Businesses).ToList());
+        }
+
 
     }
 }

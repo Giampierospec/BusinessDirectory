@@ -9,7 +9,7 @@ namespace BusinessDirectory.Models
         IEnumerable<Category> GetAllCategories();
         Business GetBusinessByName(string companyName);
         IEnumerable<Business> GetBusinessesByUserName(string userName);
-        IEnumerable<Category> GetCategoriesWithBusinesses(string category);
+        Category GetCategoryByName(string category);
         void AddBusiness(string category, Business newBusiness);
 
         Task<bool> SaveChangesAsync();

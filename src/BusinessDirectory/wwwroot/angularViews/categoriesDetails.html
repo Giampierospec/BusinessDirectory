@@ -1,0 +1,36 @@
+﻿<div>
+    <div class="margin-details text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
+                <wait-cursor display-when="vm.isBusy"></wait-cursor>
+                <h1>Anuncios Registrados para la categoría {{vm.categoryName}}</h1>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 col-md-offset-3">
+                <div class="scroll-div">
+                    <div ng-repeat="business in vm.businesses" class="panel panel-primary">
+                        <div class="panel-heading">
+                            <p>{{business.companyName}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-offset-3">
+                <div id="map">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <a ng-href="#/" class="btn btn-primary"><i class="fa fa-angle-left"></i> Regresar</a>
+            </div>
+        </div>
+    </div>
+</div>

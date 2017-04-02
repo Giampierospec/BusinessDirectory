@@ -25,13 +25,7 @@ namespace BusinessDirectory.Models
             return _context.Businesses.ToList();
         }
 
-        public IEnumerable<Category> GetCategoriesWithBusinesses(string category)
-        {
-          return  _context.Categories.
-                Include(c => c.Businesses)
-                .Where(c=> c.Name == category)
-                .ToList();
-        }
+        
 
         public IEnumerable<Business> GetBusinessesByUserName(string userName)
         {
@@ -53,14 +47,23 @@ namespace BusinessDirectory.Models
         public IEnumerable<Category> GetAllCategories()
         {
             _logger.LogInformation("Buscando todas las categorias...");
-            return _context.
-                Categories
+            return _context
+                .Categories
+                .Include(c => c.Businesses)
                 .ToList();
         }
 
         public void AddBusiness(string category, Business newBusiness)
         {
             throw new NotImplementedException();
+        }
+
+        public Category GetCategoryByName(string category)
+        {
+            return _context.Categories
+                .Include(c => c.Businesses)
+                .Where(c => c.Name == category)
+                .FirstOrDefault();
         }
     }
 }

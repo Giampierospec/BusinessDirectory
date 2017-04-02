@@ -28,5 +28,6 @@ namespace BusinessDirectory.Controllers.Api
             return Ok(Mapper.Map<IEnumerable<CategoryViewModel>>(result));
         }
         
+        
     }
 }

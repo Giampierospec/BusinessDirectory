@@ -1,0 +1,9 @@
+﻿
+
+    <div class="row text-center margin-category">
+        <div class="alert alert-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
+        <wait-cursor display-when="vm.isBusy"></wait-cursor>
+        <div ng-repeat="category in vm.category" class="col-md-3">
+            <a ng-href="#!/details/{{category.name}}" class="btn btn-primary">{{category.name}}</a>
+        </div>
+    </div>

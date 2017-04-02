@@ -1,4 +1,23 @@
-﻿@{ 
+﻿@{
     ViewBag.Title = "Categorias";
 }
+@section Css{
+    <link rel="stylesheet" href="~/css/category.css"/>
+}
+@section Scripts{
+    <script src="~/lib/underscore/underscore-min.js"></script>
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular-route/angular-route.min.js"></script>
+    <script src="~/lib/gmaps/gmaps.min.js"></script>
+    <script src="~/js/loadingCircle.js"></script>
+    <script src="~/js/app-category.js"></script>
+    <script src="~/js/categoriesController.js"></script>
+    <script src="~/js/categoriesDetailsController.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgKLg_jKyw9Vz5HUFua2DySWODYBzMIww">
+</script>
+}
 
+<div ng-app="app-category">
+    <div ng-view></div>
+</div>
