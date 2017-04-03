@@ -45,7 +45,7 @@ namespace BusinessDirectory
                 config.Password.RequiredLength = 8;
                 config.Cookies.ApplicationCookie.LoginPath = "/Admin/Login";
                 config.Cookies.ApplicationCookie.LogoutPath = "/Admin/Logout";
-                config.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                config.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromHours(1);
                 config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
                 {
                     OnRedirectToLogin = async ctx =>
