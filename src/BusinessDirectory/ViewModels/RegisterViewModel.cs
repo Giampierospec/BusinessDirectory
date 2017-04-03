@@ -27,6 +27,7 @@ namespace BusinessDirectory.ViewModels
         public string Password { get; set; }
 
         [Required]
+        [RegularExpression(@"((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}", ErrorMessage = "El numero de teléfono no es válido")]
         public string PhoneNumber { get; set; }
     }
 }

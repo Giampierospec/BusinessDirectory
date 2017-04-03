@@ -61,7 +61,18 @@ namespace BusinessDirectory.Controllers.Api
             var result = _repository.GetCategoryByName(categoryName);
             return Ok(Mapper.Map<IEnumerable<BusinessViewModel>>(result.Businesses).ToList());
         }
-
+        [HttpGet("api/business/userName")]
+        public IActionResult GetBusinessByUserName()
+        {
+            var result = _repository.GetBusinessesByUsername(User.Identity.Name);
+            return Ok(Mapper.Map<IEnumerable<BusinessViewModel>>(result));
+        }
+        /// <summary>
+        /// This will Insert all my businesses and align them into a category
+        /// </summary>
+        /// <param name="categoryName"></param>
+        /// <param name="vm"></param>
+        /// <returns></returns>
         [HttpPost("api/category/{categoryName}/business")]
         public async Task<IActionResult> Post(string categoryName, [FromBody]BusinessViewModel vm)
         {
@@ -82,7 +93,7 @@ namespace BusinessDirectory.Controllers.Api
                         var getBusiness = _repository.GetBusinessByName(newBusiness.CompanyName);
                         if(getBusiness == null)
                         {
-                            _repository.AddBusiness(categoryName, newBusiness);
+                            _repository.AddBusiness(categoryName, newBusiness, User.Identity.Name);
                             //Save to the database
                             if (await _repository.SaveChangesAsync())
                             {

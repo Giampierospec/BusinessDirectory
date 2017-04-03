@@ -8,7 +8,7 @@ using BusinessDirectory.Models;
 namespace BusinessDirectory.Migrations
 {
     [DbContext(typeof(BusinessDbContext))]
-    [Migration("20170403180305_IdentityRecreate")]
+    [Migration("20170403190704_IdentityRecreate")]
     partial class IdentityRecreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

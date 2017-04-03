@@ -1,3 +1,27 @@
-﻿@{ 
+﻿@{
     ViewBag.Title = "Mis negocios";
 }
+
+@section Scripts{
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular-route/angular-route.min.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgKLg_jKyw9Vz5HUFua2DySWODYBzMIww">
+    </script>
+    <script src="~/lib/underscore/underscore-min.js"></script>
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular-route/angular-route.min.js"></script>
+    <script src="~/lib/gmaps/gmaps.min.js"></script>
+    <script src="~/js/loadingCircle.js"></script>
+    <script src="~/js/myBusiness-app.js"></script>
+    <script src="~/js/businessUserController.js"></script>
+    <script src="~/js/businessUserDetailsController.js"></script>
+
+}
+
+<div ng-app="myBusiness-app">
+    <div class="margin-details text-center">
+        <h1>Negocios publicados por @User.Identity.Name</h1>
+    </div>
+    <div ng-view></div>
+</div>

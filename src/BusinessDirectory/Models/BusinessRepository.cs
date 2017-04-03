@@ -53,11 +53,13 @@ namespace BusinessDirectory.Models
                 .ToList();
         }
 
-        public void AddBusiness(string category, Business newBusiness)
+        public void AddBusiness(string category, Business newBusiness, string userName)
         {
             var cat= GetCategoryByName(category);
             if(cat != null)
             {
+                //This will get the current username
+                newBusiness.UserName = userName;
                 cat.Businesses.Add(newBusiness);
                 _context.Businesses.Add(newBusiness);
             }
@@ -69,6 +71,13 @@ namespace BusinessDirectory.Models
                 .Include(c => c.Businesses)
                 .Where(c => c.Name == category)
                 .FirstOrDefault();
+        }
+
+        public IEnumerable<Business> GetBusinessesByUsername(string userName)
+        {
+            return _context
+                .Businesses
+                .Where(b => b.UserName == userName).ToList();
         }
     }
 }
