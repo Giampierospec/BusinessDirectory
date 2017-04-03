@@ -15,11 +15,13 @@ namespace BusinessDirectory.Controllers.Admin
     {
         private ILogger<AdminController> _logger;
         private SignInManager<BusinessUser> _signInManager;
+        private UserManager<BusinessUser> _userManager;
 
-        public AdminController(SignInManager<BusinessUser> signInManager, ILogger<AdminController> logger)
+        public AdminController(SignInManager<BusinessUser> signInManager, ILogger<AdminController> logger, UserManager<BusinessUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
         }
         public IActionResult Login()
         {
@@ -51,6 +53,25 @@ namespace BusinessDirectory.Controllers.Admin
             }
 
             return View(vm);
+        }
+        public IActionResult Register()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "App");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel vm)
+        {
+
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "App");
         }
 
     }
