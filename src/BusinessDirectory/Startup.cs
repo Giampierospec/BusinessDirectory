@@ -45,6 +45,9 @@ namespace BusinessDirectory
                 config.Password.RequiredLength = 8;
                 config.Cookies.ApplicationCookie.LoginPath = "/Admin/Login";
                 config.Cookies.ApplicationCookie.LogoutPath = "/Admin/Logout";
+                config.Password.RequireDigit = true;
+                config.Password.RequireLowercase = true;
+                config.Password.RequireUppercase = false;
                 config.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromHours(1);
                 config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
                 {
