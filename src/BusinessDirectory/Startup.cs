@@ -42,7 +42,7 @@ namespace BusinessDirectory
             services.AddIdentity<BusinessUser, IdentityRole>(config => 
             {
                 config.User.RequireUniqueEmail = true;
-                config.Password.RequiredLength = 8;
+                config.Password.RequiredLength= 8;
                 config.Cookies.ApplicationCookie.LoginPath = "/Admin/Login";
                 config.Cookies.ApplicationCookie.LogoutPath = "/Admin/Logout";
                 config.Password.RequireDigit = true;

@@ -26,16 +26,17 @@ namespace BusinessDirectory.Models
         /// </summary>
         public async Task EnsureData()
         {
+            //This will verify if that email already exists
             if (await _userManager.FindByEmailAsync("giampi_12@hotmail.com") == null)
             {
                 var user = new BusinessUser()
                 {
-                    UserName = "giampierospec",
+                    UserName = "giampi_12@hotmail.com",
                     Email = "giampi_12@hotmail.com",
                     Name = "Giampiero",
                     LastName = "Specogna"
                 };
-               await _userManager.CreateAsync(user, "P@ssw0rd!");
+               await _userManager.CreateAsync(user, "azulado@A12");
 
             }
 

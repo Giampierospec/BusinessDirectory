@@ -27,9 +27,15 @@
                 <li><a asp-controller="App" asp-action="MyBusinesses"><i class="fa fa-sitemap"></i> Mis negocios</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                @if (!User.Identity.IsAuthenticated)
+                {
                 <li><a asp-controller="Admin" asp-action="Register"><i class="fa fa-sign-in"></i> Registrarse</a></li>
                 <li><a asp-controller="Admin" asp-action="Login"><i class="fa fa-sign-in"></i> Iniciar Sesión</a></li>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
                 <li><a asp-controller="Admin" asp-action="Logout"><i class="fa fa-sign-out"></i> Cerrar Sesión</a></li>
+                }
             </ul>
         </div>
     </nav>

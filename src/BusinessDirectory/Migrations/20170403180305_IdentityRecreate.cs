@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BusinessDirectory.Migrations
 {
-    public partial class IdentityClasses : Migration
+    public partial class IdentityRecreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
