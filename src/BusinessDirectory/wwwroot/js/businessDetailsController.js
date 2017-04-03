@@ -53,7 +53,7 @@
                 content: "<p>" + business.companyName + "</p>"
             },
             click: function (e) {
-                map.setCenter(Number(business.latitude), Number(business.longitude))
+                map.setCenter(Number(business.latitude), Number(business.longitude));
                 map.setZoom(16);
             }
         });
