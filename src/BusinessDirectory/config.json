@@ -1,5 +1,9 @@
 {
   "ConnectionStrings": {
     "BusinessDirectoryConnections": "Data Source=(localdb)\\MSSQLLocalDB;Database=DirectoryDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  },
+  "Keys": {
+    "BingKey": "NOTHERE"
   }
+  
 }

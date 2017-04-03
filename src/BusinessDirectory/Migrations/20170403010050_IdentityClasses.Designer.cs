@@ -8,9 +8,10 @@ using BusinessDirectory.Models;
 namespace BusinessDirectory.Migrations
 {
     [DbContext(typeof(BusinessDbContext))]
-    partial class BusinessDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170403010050_IdentityClasses")]
+    partial class IdentityClasses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")

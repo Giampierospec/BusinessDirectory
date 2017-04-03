@@ -1,4 +1,5 @@
 ﻿using BusinessDirectory.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -24,6 +25,7 @@ namespace BusinessDirectory.Controllers.App
             var data = _context.Businesses.ToList();
             return View(data);
         }
+        [Authorize]
         public IActionResult PublishBusiness()
         {
             return View();
@@ -32,6 +34,7 @@ namespace BusinessDirectory.Controllers.App
         {
             return View();
         }
+        [Authorize]
         public IActionResult MyBusinesses()
         {
             return View();

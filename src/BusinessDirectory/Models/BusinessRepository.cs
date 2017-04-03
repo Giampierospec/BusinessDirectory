@@ -55,7 +55,12 @@ namespace BusinessDirectory.Models
 
         public void AddBusiness(string category, Business newBusiness)
         {
-            throw new NotImplementedException();
+            var cat= GetCategoryByName(category);
+            if(cat != null)
+            {
+                cat.Businesses.Add(newBusiness);
+                _context.Businesses.Add(newBusiness);
+            }
         }
 
         public Category GetCategoryByName(string category)

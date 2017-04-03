@@ -10,11 +10,11 @@ namespace BusinessDirectory.ViewModels
     public class BusinessViewModel
     {
         [Required]
-        [StringLength(25, MinimumLength = 5)]
+        [StringLength(100, MinimumLength = 5)]
         public string CompanyName { get; set; }
 
         [Required]
-        [StringLength(25, MinimumLength = 5)]
+        [StringLength(100, MinimumLength = 5)]
         public string Address { get; set; }
 
         [Required]
@@ -25,7 +25,8 @@ namespace BusinessDirectory.ViewModels
         public double Longitude { get; set; }
 
         [Required]
-        [MinLength(5)]
         public string Description { get; set; }
+
+        public string UserName { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessDirectory.Models;
+using BusinessDirectory.Services;
 using BusinessDirectory.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,13 +14,15 @@ namespace BusinessDirectory.Controllers.Api
 {
     public class BusinessController : Controller
     {
+        private GeoCoordService _coordService;
         private ILogger<BusinessController> _logger;
         private IBusinessRepository _repository;
 
-        public BusinessController(ILogger<BusinessController> logger, IBusinessRepository repository)
+        public BusinessController(ILogger<BusinessController> logger, IBusinessRepository repository, GeoCoordService coordService)
         {
             _logger = logger;
             _repository = repository;
+            _coordService = coordService;
         }
         [HttpGet("api/business")]
         public IActionResult Get()
@@ -57,6 +60,51 @@ namespace BusinessDirectory.Controllers.Api
         {
             var result = _repository.GetCategoryByName(categoryName);
             return Ok(Mapper.Map<IEnumerable<BusinessViewModel>>(result.Businesses).ToList());
+        }
+
+        [HttpPost("api/category/{categoryName}/business")]
+        public async Task<IActionResult> Post(string categoryName, [FromBody]BusinessViewModel vm)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var newBusiness = Mapper.Map<Business>(vm);
+                    var coordResult = await _coordService.GetCoordByAddress(newBusiness.Address);
+                    if (!coordResult.Success)
+                    {
+                        _logger.LogError(coordResult.Message);
+                    }
+                    else
+                    {
+                        newBusiness.Latitude = coordResult.Latitude;
+                        newBusiness.Longitude = coordResult.Longitude;
+                        var getBusiness = _repository.GetBusinessByName(newBusiness.CompanyName);
+                        if(getBusiness == null)
+                        {
+                            _repository.AddBusiness(categoryName, newBusiness);
+                            //Save to the database
+                            if (await _repository.SaveChangesAsync())
+                            {
+                                return Created($"/api/category/{categoryName}/business/{newBusiness.CompanyName}",
+                                    Mapper.Map<BusinessViewModel>(newBusiness));
+                            }
+
+                        }
+                        else
+                        {
+                            //You have tried to put something that already exists
+                            _logger.LogError($"El nombre {newBusiness.CompanyName} ya existe, intente denuevo");
+                            return BadRequest("El nombre que usted introdujo es invalido");
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"fallo en guardar nuevo negocio {ex}");
+            }
+            return BadRequest("Fallo en guardar negocio");
         }
 
 

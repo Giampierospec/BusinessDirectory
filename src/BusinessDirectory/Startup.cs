@@ -13,6 +13,9 @@ using BusinessDirectory.Models;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using BusinessDirectory.ViewModels;
+using BusinessDirectory.Services;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace BusinessDirectory
 {
@@ -36,8 +39,35 @@ namespace BusinessDirectory
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(_config);
+            services.AddIdentity<BusinessUser, IdentityRole>(config => 
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Admin/Login";
+                config.Cookies.ApplicationCookie.LogoutPath = "/Admin/Logout";
+                config.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
+                {
+                    OnRedirectToLogin = async ctx =>
+                    {
+                        if (ctx.Request.Path.StartsWithSegments("/api") &&
+                        ctx.Response.StatusCode == 200)
+                        {
+                            ctx.Response.StatusCode = 401;
+                        }
+                        else
+                        {
+                            ctx.Response.Redirect(ctx.RedirectUri);
+                        }
+                        await Task.Yield();
+                    }
+                };
+
+            })
+            .AddEntityFrameworkStores<BusinessDbContext>();
             services.AddDbContext<BusinessDbContext>();
             services.AddScoped<IBusinessRepository, BusinessRepository>();
+            services.AddTransient<GeoCoordService>();
             services.AddMvc(config =>
             {
                 if (_env.IsProduction())
@@ -50,6 +80,7 @@ namespace BusinessDirectory
 
                     config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
+            
             services.AddTransient<BusinessSeedData>();
             services.AddLogging();
         }
@@ -58,10 +89,7 @@ namespace BusinessDirectory
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,
             BusinessSeedData seeder)
         {
-            Mapper.Initialize(config => {
-                config.CreateMap<BusinessViewModel, Business>().ReverseMap();
-                config.CreateMap<CategoryViewModel, Category>().ReverseMap();
-            });
+            
             loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
@@ -70,13 +98,17 @@ namespace BusinessDirectory
             }
 
             app.UseStaticFiles();
+            app.UseIdentity();
+            Mapper.Initialize(config => {
+                config.CreateMap<BusinessViewModel, Business>().ReverseMap();
+                config.CreateMap<CategoryViewModel, Category>().ReverseMap();
+            });
             app.UseMvc(config =>
             {
                 config.MapRoute(
                     name: "Default",
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "App", action = "Index" }
-
                     );
             });
             seeder.EnsureData().Wait();

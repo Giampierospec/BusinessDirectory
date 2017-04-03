@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,21 +10,38 @@ namespace BusinessDirectory.Models
     public class BusinessSeedData
     {
         private BusinessDbContext _context;
+        private UserManager<BusinessUser> _userManager;
+
         /// <summary>
         /// This constructor will be injected with the context
         /// </summary>
         /// <param dbContext="context"></param>
-        public BusinessSeedData(BusinessDbContext context)
+        public BusinessSeedData(BusinessDbContext context, UserManager<BusinessUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         /// <summary>
         /// This will fill the database in case it is empty
         /// </summary>
         public async Task EnsureData()
         {
+            if (await _userManager.FindByEmailAsync("giampi_12@hotmail.com") == null)
+            {
+                var user = new BusinessUser()
+                {
+                    UserName = "giampierospec",
+                    Email = "giampi_12@hotmail.com",
+                    Name = "Giampiero",
+                    LastName = "Specogna"
+                };
+               await _userManager.CreateAsync(user, "P@ssw0rd!");
+
+            }
+
             if (!_context.Categories.Any())
             {
+                
                 var servicio = new Category()
                 {
                     //Services Category

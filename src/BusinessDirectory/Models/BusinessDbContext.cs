@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessDirectory.Models
 {
-    public class BusinessDbContext: DbContext
+    public class BusinessDbContext: IdentityDbContext<BusinessUser>
     {
         private IConfigurationRoot _config;
 
