@@ -46,6 +46,7 @@
         //This will add my business
         vm.addBusiness = function () {
             var categoryName = vm.category;
+            //this will get the name of my category
             var url = "/api/category/" + categoryName.name.name + "/business";
             console.log(url);
             vm.isBusy = true;

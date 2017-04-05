@@ -31,7 +31,7 @@
             div: "#map",
             lat: 0,
             lng: 0,
-            zoom: 10,
+            zoom: 8,
             zoomControl: true
         });
         //This will get my actual position
