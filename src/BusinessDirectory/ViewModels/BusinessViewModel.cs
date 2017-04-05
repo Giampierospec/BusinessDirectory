@@ -18,7 +18,7 @@ namespace BusinessDirectory.ViewModels
         public string Address { get; set; }
 
         [Required]
-        [StringLength(15, MinimumLength = 5)]
+        [RegularExpression(@"((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}", ErrorMessage = "El numero de teléfono no es válido")]
         public string Phone { get; set; }
 
         public double Latitude { get; set; }

@@ -6,3 +6,9 @@
     background-color: transparent;
     border: 1px solid #000;
 }
+.jb-blank-nomargin{
+    margin-top:11%;
+    box-shadow: 10px 15px 5px 5px;
+    background-color: transparent;
+    border: 1px solid #000;
+}

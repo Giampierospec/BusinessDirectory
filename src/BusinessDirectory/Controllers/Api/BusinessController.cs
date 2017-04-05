@@ -73,7 +73,7 @@ namespace BusinessDirectory.Controllers.Api
         /// <param name="categoryName"></param>
         /// <param name="vm"></param>
         /// <returns></returns>
-        [HttpPost("api/category/{categoryName}/business")]
+        [HttpPost("api/category/{categoryName}business")]
         public async Task<IActionResult> Post(string categoryName, [FromBody]BusinessViewModel vm)
         {
             try
