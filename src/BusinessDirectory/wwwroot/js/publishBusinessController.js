@@ -56,7 +56,7 @@
                 vm.businesses.push(response.data);
                 _showThisMap(vm.businesses);
                 vm.business = {};
-                vm.categoryName = {};
+                vm.category = {};
             }, function (err) {
                 // failure
                 vm.errorMessage = "Fallo en agregar nuevo negocio";
