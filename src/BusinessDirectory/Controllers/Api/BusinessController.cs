@@ -115,7 +115,7 @@ namespace BusinessDirectory.Controllers.Api
             {
                 _logger.LogError($"fallo en guardar nuevo negocio {ex}");
             }
-            return BadRequest("Fallo en guardar negocio");
+            return BadRequest("Fallo en guardar negocio negocio ya existe");
         }
 
 
