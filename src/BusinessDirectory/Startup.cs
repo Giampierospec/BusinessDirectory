@@ -106,6 +106,7 @@ namespace BusinessDirectory
             Mapper.Initialize(config => {
                 config.CreateMap<BusinessViewModel, Business>().ReverseMap();
                 config.CreateMap<CategoryViewModel, Category>().ReverseMap();
+                config.CreateMap<RegisterViewModel, BusinessUser>().ReverseMap();
             });
             app.UseMvc(config =>
             {

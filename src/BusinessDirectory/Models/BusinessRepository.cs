@@ -79,5 +79,14 @@ namespace BusinessDirectory.Models
                 .Businesses
                 .Where(b => b.UserName == userName).ToList();
         }
+        public IEnumerable<BusinessUser> GetAllBusinessUsers()
+        {
+           return  _context.Users.ToList();
+        }
+
+        public BusinessUser GetBusinessUserByName(string userName)
+        {
+            return _context.Users.Where(u => u.UserName == userName).FirstOrDefault();
+        }
     }
 }

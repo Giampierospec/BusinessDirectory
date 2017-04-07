@@ -7,6 +7,8 @@ namespace BusinessDirectory.Models
     {
         IEnumerable<Business> GetAllBusinesses();
         IEnumerable<Category> GetAllCategories();
+        IEnumerable<BusinessUser> GetAllBusinessUsers();
+        BusinessUser GetBusinessUserByName(string userName);
         Business GetBusinessByName(string companyName);
         IEnumerable<Business> GetBusinessesByUserName(string userName);
         Category GetCategoryByName(string category);
