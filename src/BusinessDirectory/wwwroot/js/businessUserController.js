@@ -8,7 +8,15 @@
         var vm = this;
         vm.businesses = [];
         vm.isBusy = true;
+        vm.businessUser = {};
         vm.errorMessage = "";
+        //This will get the user
+        $http.get("/api/businessUserByName")
+                .then(function (response) {
+                    angular.copy(response.data, vm.businessUser);
+                }, function (error) {
+                    vm.errorMessage = "Ocurrío un error al buscar el usuario";
+                });
         $http.get("/api/business/userName")
               .then(function (response) {
                   if (response.data.length == 0) {
