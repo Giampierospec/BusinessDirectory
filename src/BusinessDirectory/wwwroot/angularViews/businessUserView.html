@@ -1,21 +1,25 @@
 ﻿<div ng-hide="vm.errorMessage">
     <div class="row margin-details text-center">
         <div class="col-md-6">
-            <h1>Tus Negocios</h1>
+            
             <wait-cursor display-when="vm.isBusy"></wait-cursor>
-            <div class="scroll-div">
-                <div ng-repeat="business in vm.businesses" class="panel panel-primary text-center">
+            
+                <div  class="panel panel-primary text-center">
                     <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p>{{business.companyName}}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <a ng-href="#!/detailsUser/{{business.companyName}}">Detalles</a>
+                        <h1>Tus Negocios</h1>
+                    </div>
+                    <div class="scroll-div">
+                        <div ng-repeat="business in vm.businesses" class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>{{business.companyName}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <a ng-href="#!/detailsUser/{{business.companyName}}">Detalles</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
         <div class="col-md-6">
