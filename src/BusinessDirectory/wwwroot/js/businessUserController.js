@@ -4,7 +4,6 @@
     angular.module("myBusiness-app")
             .controller("businessUserController", businessUserController);
     function businessUserController($http) {
-        $("h1").show();
         var vm = this;
         vm.businesses = [];
         vm.isBusy = true;

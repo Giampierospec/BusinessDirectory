@@ -1,11 +1,12 @@
-﻿//businessUserDetailsController.js
+﻿//publishBusinessDetailsController.js
 (function () {
-    angular.module("myBusiness-app")
-            .controller("businessUserDetailsController", businessUserDetailsController);
+    angular.module("publishBusiness-app")
+            .controller("publishBusinessDetailsController", publishBusinessDetailsController);
 
-    function businessUserDetailsController($routeParams, $http) {
+    function publishBusinessDetailsController($routeParams, $http) {
         var vm = this;
         vm.companyName = $routeParams.companyName;
+        console.log(vm.companyName);
         vm.business = {};
         var url = "/api/business/" + vm.companyName;
         vm.errorMessage = "";

@@ -9,6 +9,11 @@
                     templateUrl: "/angularViews/publishBusinessView.html"
 
                 });
+                $routeProvider.when("/detailsPublishBusiness/:companyName", {
+                    controller: "publishBusinessDetailsController",
+                    controllerAs: "vm",
+                    templateUrl: "/angularViews/businessDetails.html"
+                });
 
             });
 })();
