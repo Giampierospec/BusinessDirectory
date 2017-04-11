@@ -91,7 +91,7 @@ namespace BusinessDirectory.Controllers.Api
                         newBusiness.Latitude = coordResult.Latitude;
                         newBusiness.Longitude = coordResult.Longitude;
                         var getBusiness = _repository.GetBusinessByName(newBusiness.CompanyName);
-                        if(getBusiness == null)
+                        if (getBusiness == null)
                         {
                             _repository.AddBusiness(categoryName, newBusiness, User.Identity.Name);
                             //Save to the database
@@ -111,11 +111,34 @@ namespace BusinessDirectory.Controllers.Api
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError($"fallo en guardar nuevo negocio {ex}");
             }
             return BadRequest("Fallo en guardar negocio negocio ya existe");
+        }
+        [HttpDelete("api/business/delete")]
+        public async Task<IActionResult> DeleteBusiness([FromBody] BusinessViewModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var delBusiness = _repository.GetBusinessByName(vm.CompanyName);
+                    _repository.DeltBusiness(delBusiness);
+                    if (await _repository.SaveChangesAsync())
+                    {
+                        return Ok(Mapper.Map<BusinessViewModel>(delBusiness));
+                    }
+                    
+
+                }
+                catch(Exception ex)
+                {
+                    _logger.LogError($"Ocurrio un error al eliminar {ex}");
+                }
+                }
+            return BadRequest("El negocio no se pudo eliminar");
         }
 
 

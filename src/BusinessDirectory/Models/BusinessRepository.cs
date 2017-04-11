@@ -88,5 +88,16 @@ namespace BusinessDirectory.Models
         {
             return _context.Users.Where(u => u.UserName == userName).FirstOrDefault();
         }
+
+        public void DeltBusiness(Business delBusiness)
+        {
+            var bsList = _context.Businesses.Where(b => b.Id == delBusiness.Id).FirstOrDefault();
+            var cat = GetAllCategories();
+            foreach (var ct in cat)
+            {
+                ct.Businesses.Remove(bsList);
+            }
+            _context.Businesses.Remove(bsList);
+        }
     }
 }

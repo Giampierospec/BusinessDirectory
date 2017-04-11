@@ -11,20 +11,25 @@
             <div class="panel-heading">
                 <h2>Tus anuncios</h2>
             </div>
+
+
             <div class="scroll-div">
-                <div ng-repeat="business in vm.businesses" class="panel-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p>{{business.companyName}}</p>
+                <div ng-repeat="business in vm.businesses"class="panel-body">
+                        <div class="col-md-4">
+                            <p>{{business.companyName}}</p>                          
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <a ng-href="#!/detailsPublishBusiness/{{business.companyName}}">Detalles</a>
                         </div>
+                    <div class="col-md-4">
+                        <a ng-href="#!/deleteBusiness/{{business.companyName}}" class="text-danger"><i class="fa fa-trash"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
 
 

@@ -13,7 +13,9 @@ namespace BusinessDirectory.Models
         IEnumerable<Business> GetBusinessesByUserName(string userName);
         Category GetCategoryByName(string category);
         void AddBusiness(string category, Business newBusiness, string userName);
+        void DeltBusiness(Business delBusiness);
         Task<bool> SaveChangesAsync();
         IEnumerable<Business>GetBusinessesByUsername(string userName);
+        
     }
 }
