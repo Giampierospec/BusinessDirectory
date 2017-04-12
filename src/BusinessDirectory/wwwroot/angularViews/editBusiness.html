@@ -1,0 +1,49 @@
+﻿<div class="row margin-details text-center" ng-hide="vm.errorMessage">
+    <div class="col-md-6 col-md-offset-3">
+        <wait-cursor display-when="vm.isBusy"></wait-cursor>
+        <div class="jumbotron jb-blank-nomargin">
+            <legend> Edite este negocio</legend>
+            <form novalidate ng-submit="vm.editBusiness()" name="editBusinessForm">
+                <div class="form-group input-group">
+                    <label class="input-group-addon"><i class="fa fa-building"></i> Compañía</label>
+                    <input type="text" id="companyName" name="companyName" ng-model="vm.business.companyName" required ng-minlength="5" class="form-control" value="{{vm.biz.companyName}}"/>
+                    <span class="text-warning" ng-show="editBusinessForm.companyName.$error.required">El campo es requerido</span>
+                    <span class="text-warning" ng-show="editBusinessForm.companyName.$error.minlength">Minimo 5 caracteres</span>
+                </div>
+                <div class="form-group input-group">
+                    <label class="input-group-addon"><i class="fa fa-address-book"></i> Dirección</label>
+                    <input type="text" id="address" name="address" ng-model="vm.business.address" required ng-minlength="5" class="form-control" value="{{vm.biz.address}}"/>
+                    <span class="text-warning" ng-show="editBusinessForm.address.$error.required">El campo es requerido</span>
+                    <span class="text-warning" ng-show="editBusinessForm.address.$error.minlength">Minimo 5 caracteres</span>
+                </div>
+                <div class="form-group input-group">
+                    <label class="input-group-addon"><i class="fa fa-phone"></i> Teléfono</label>
+                    <input type="tel" id="phone" name="phone" ng-model="vm.business.phone" required class="form-control" ng-pattern="/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/" value="{{vm.biz.phone}}"/>
+                    <span class="text-warning" ng-show="editBusinessForm.phone.$error.required">El campo es requerido</span>
+                    <span class="text-warning" ng-show="editBusinessForm.phone.$error.pattern">El formato correcto es 000-000-000</span>
+                </div>
+                <div class="form-group input-group">
+                    <label class="input-group-addon"><i class="fa fa-info"></i> Descripción</label>
+                    <textarea id="description" name="description" ng-model="vm.business.description" required class="form-control" ng-minlength="5" value="{{vm.biz.description}}"></textarea>
+                    <span class="text-warning" ng-show="editBusinessForm.description.$error.required">El campo es requerido</span>
+                    <span class="text-warning" ng-show="editBusinessForm.description.$error.minlength">Minimo 5 caracteres</span>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success" ng-disabled="editBusinessForm.$invalid">Editar<i class="fa fa-plane"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <a ng-href="#/" class="btn btn-default">Regresar</a>
+        </div>
+    </div>
+    <div class="row margin-details" ng-show="vm.errorMessage">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-target="alert">&times;</a>
+                {{vm.errorMessage}}
+            </div>
+        </div>
+    </div>
