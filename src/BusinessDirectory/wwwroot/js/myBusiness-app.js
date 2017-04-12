@@ -13,6 +13,17 @@
                     controllerAs: "vm",
                     templateUrl:"/angularViews/businessDetails.html"
                 });
+                $routeProvider.when("/deleteBusiness/:companyName", {
+                    controller: "deleteBusinessController",
+                    controllerAs: "vm",
+                    templateUrl: "/angularViews/deleteBusiness.html"
+                });
+                $routeProvider.when("/editBusiness/:companyName", {
+                    controller: "editBusinessController",
+                    controllerAs: "vm",
+                    templateUrl: "/angularViews/editBusiness.html"
+                });
+
 
                 $routeProvider.otherwise({ redirectTo: "/" });
             });

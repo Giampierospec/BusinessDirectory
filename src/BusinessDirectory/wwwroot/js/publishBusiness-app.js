@@ -14,11 +14,5 @@
                     controllerAs: "vm",
                     templateUrl: "/angularViews/businessDetails.html"
                 });
-                $routeProvider.when("/deleteBusiness/:companyName", {
-                    controller: "deleteBusinessController",
-                    controllerAs: "vm",
-                    templateUrl:"/angularViews/deleteBusiness.html"
-                })
-
             });
 })();

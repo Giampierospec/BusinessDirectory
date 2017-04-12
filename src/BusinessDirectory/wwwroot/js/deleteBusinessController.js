@@ -1,7 +1,7 @@
 ﻿//deleteBusinessController.js
 (function () {
     "use strict";
-    angular.module("publishBusiness-app")
+    angular.module("myBusiness-app")
             .controller("deleteBusinessController", deleteBusinessController);
     function deleteBusinessController($http, $routeParams) {
         var vm = this;

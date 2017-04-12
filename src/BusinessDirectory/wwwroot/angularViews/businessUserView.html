@@ -11,11 +11,17 @@
                     <div class="scroll-div">
                         <div ng-repeat="business in vm.businesses" class="panel-body">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <p>{{business.companyName}}</p>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <a ng-href="#!/detailsUser/{{business.companyName}}">Detalles</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a ng-href="#!/deleteBusiness/{{business.companyName}}" class="text-danger"><i class="fa fa-trash"></i></a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a ng-href="#!/editBusiness/{{business.companyName}}" class="text-primary"><i class="fa fa-pencil"></i></a>
                                 </div>
                             </div>
                         </div>
