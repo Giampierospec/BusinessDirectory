@@ -9,6 +9,7 @@ namespace BusinessDirectory.ViewModels
 {
     public class BusinessViewModel
     {
+        public  int  Id { get; set; }
         [Required]
         [StringLength(100, MinimumLength = 5)]
         public string CompanyName { get; set; }

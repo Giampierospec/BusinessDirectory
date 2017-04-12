@@ -120,8 +120,7 @@ namespace BusinessDirectory.Controllers.Api
         [HttpPost("api/business/delete")]
         public async Task<IActionResult> DeleteBusiness([FromBody]BusinessViewModel vm)
         {
-            if (ModelState.IsValid)
-            {
+           
                 try
                 {
                     var delBusiness = _repository.GetBusinessByName(vm.CompanyName);
@@ -137,8 +136,43 @@ namespace BusinessDirectory.Controllers.Api
                 {
                     _logger.LogError($"Ocurrio un error al eliminar {ex}");
                 }
-                }
+                
             return BadRequest("El negocio no se pudo eliminar");
+        }
+        [HttpPost("api/business/update")]
+        public async Task<IActionResult> Update([FromBody] BusinessViewModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var updBusiness= Mapper.Map<Business>(vm);
+                    var coordResult = await _coordService.GetCoordByAddress(updBusiness.Address);
+                    if (!coordResult.Success)
+                    {
+                        _logger.LogError(coordResult.Message);
+                    }
+                    else
+                    {
+                        updBusiness.Latitude = coordResult.Latitude;
+                        updBusiness.Longitude = coordResult.Longitude;
+                        _repository.UpdateBusiness(updBusiness);
+                        //Save to the database
+                        if (await _repository.SaveChangesAsync())
+                        {
+                            return Ok(Mapper.Map<BusinessViewModel>(updBusiness));
+                        }
+
+                    }
+
+                    }
+                catch(Exception ex)
+                {
+                    _logger.LogError($"Ocurrio un error al actualizar los datos {ex}");
+                }
+
+            }
+            return BadRequest("No se pudo actualizar los datos del negocio");
         }
 
 

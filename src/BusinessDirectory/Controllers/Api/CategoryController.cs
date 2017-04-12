@@ -27,6 +27,7 @@ namespace BusinessDirectory.Controllers.Api
             var result = _repository.GetAllCategories();
             return Ok(Mapper.Map<IEnumerable<CategoryViewModel>>(result));
         }
+       
         
         
     }

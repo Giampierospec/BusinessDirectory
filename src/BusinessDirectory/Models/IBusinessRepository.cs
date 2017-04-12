@@ -10,12 +10,12 @@ namespace BusinessDirectory.Models
         IEnumerable<BusinessUser> GetAllBusinessUsers();
         BusinessUser GetBusinessUserByName(string userName);
         Business GetBusinessByName(string companyName);
-        IEnumerable<Business> GetBusinessesByUserName(string userName);
         Category GetCategoryByName(string category);
         void AddBusiness(string category, Business newBusiness, string userName);
         void DeltBusiness(Business delBusiness);
+        void UpdateBusiness(Business bs);
         Task<bool> SaveChangesAsync();
         IEnumerable<Business>GetBusinessesByUsername(string userName);
-        
+        Business GetBusinessById(int id);
     }
 }

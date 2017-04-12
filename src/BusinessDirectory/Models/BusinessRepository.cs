@@ -25,12 +25,6 @@ namespace BusinessDirectory.Models
             return _context.Businesses.ToList();
         }
 
-        
-
-        public IEnumerable<Business> GetBusinessesByUserName(string userName)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<bool> SaveChangesAsync()
         {
@@ -98,6 +92,23 @@ namespace BusinessDirectory.Models
                 ct.Businesses.Remove(bsList);
             }
             _context.Businesses.Remove(bsList);
+        }
+
+        public Category GetCategoryByBusiness(Business bs)
+        {
+            var result = _context.Categories.Include(c => c.Businesses).Where(c => c.Businesses == bs).FirstOrDefault();
+            return result;
+        }
+
+        public void UpdateBusiness(Business bs)
+        {
+            _context.Businesses.Update(bs);
+
+        }
+
+        public Business GetBusinessById(int id)
+        {
+            return _context.Businesses.Where(b => b.Id == id).FirstOrDefault();       
         }
     }
 }
