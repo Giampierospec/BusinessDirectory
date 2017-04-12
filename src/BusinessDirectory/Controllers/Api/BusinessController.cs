@@ -117,8 +117,8 @@ namespace BusinessDirectory.Controllers.Api
             }
             return BadRequest("Fallo en guardar negocio negocio ya existe");
         }
-        [HttpDelete("api/business/delete")]
-        public async Task<IActionResult> DeleteBusiness([FromBody] BusinessViewModel vm)
+        [HttpPost("api/business/delete")]
+        public async Task<IActionResult> DeleteBusiness([FromBody]BusinessViewModel vm)
         {
             if (ModelState.IsValid)
             {
