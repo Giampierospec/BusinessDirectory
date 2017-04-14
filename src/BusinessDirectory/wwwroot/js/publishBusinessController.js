@@ -42,7 +42,7 @@
                .finally(function () {
                    vm.isBusy = false;
                });
-        
+
         //This will add my business
         vm.addBusiness = function () {
             var categoryName = vm.category;
@@ -74,7 +74,6 @@
                 zoom: 10,
                 zoomControl: true
             });
-            //This will get my actual position
             GMaps.geolocate({
                 success: function (position) {
                     map.setCenter(position.coords.latitude, position.coords.longitude);
@@ -90,21 +89,34 @@
                 }
             });
             for (var bs of businesses) {
-            //This will add some markers
-                map.addMarker({
-                    lat: Number(bs.latitude),
-                    lng: Number(bs.longitude),
-                    title: bs.companyName,
-                    infoWindow: {
-                        content: "<p>" + bs.companyName + "</p>"
-                    },
-                    click: function (e) {
-                        map.setCenter(Number(bs.latitude), Number(bs.longitude));
-                        map.setZoom(16);
+                GMaps.geocode({
+                    address: bs.address,
+                    callback: function (results, status) {
+                        var bsCode = bs;
+                        console.log(results[0]);
+                        if (status == "OK") {
+
+                            var latlng = results[0].geometry.location;
+                            var addr = results[0].formatted_address;
+                            map.addMarker({
+                                lat: latlng.lat(),
+                                lng: latlng.lng(),
+                                title: addr,
+                                infoWindow: {
+                                    content: "<p>" + addr + "</p>"
+                                },
+                                click: function (e) {
+                                    map.setCenter(latlng.lat(), latlng.lng());
+                                    map.setZoom(16);
+                                }
+                            });
+
+                        }
                     }
                 });
+
             }
+
         }
-        
     }
 })();

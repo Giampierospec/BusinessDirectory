@@ -30,8 +30,30 @@
             lng: 0,
             zoom: 7,
             zoomControl: true
+        });    
+        GMaps.geocode({
+            address: business.address,
+            callback: function (results, status) {
+                if (status == "OK") {
+                    var latlng = results[0].geometry.location;
+                    map.setCenter(latlng.lat(), latlng.lng());
+                    map.addMarker({
+                        lat: latlng.lat(),
+                        lng: latlng.lng(),
+                        title: business.companyName,
+                        infoWindow: {
+                            content: "<p>" + business.companyName + "</p>"
+                        },
+                        click: function (e) {
+                            map.setCenter(latlng.lat(), latlng.lng());
+                            map.setZoom(16);
+                        }
+                    });
+                    
+                }
+            }
         });
-        GMaps.geolocate({
+        /*GMaps.geolocate({
             success: function (position) {
                 map.setCenter(position.coords.latitude, position.coords.longitude);
             },
@@ -56,6 +78,6 @@
                 map.setCenter(Number(business.latitude), Number(business.longitude));
                 map.setZoom(16);
             }
-        });
+        });*/
     }
 })();
