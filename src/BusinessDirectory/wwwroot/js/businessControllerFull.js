@@ -54,8 +54,6 @@
             GMaps.geocode({
                 address: bs.address,
                 callback: function (results, status) {
-                    var bsCode = bs;
-                    console.log(results[0]);
                     if (status == "OK") {
 
                         var latlng = results[0].geometry.location;

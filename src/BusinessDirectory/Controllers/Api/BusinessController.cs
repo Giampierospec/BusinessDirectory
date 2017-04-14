@@ -81,15 +81,6 @@ namespace BusinessDirectory.Controllers.Api
                 if (ModelState.IsValid)
                 {
                     var newBusiness = Mapper.Map<Business>(vm);
-                    var coordResult = await _coordService.GetCoordByAddress(newBusiness.Address);
-                    if (!coordResult.Success)
-                    {
-                        _logger.LogError(coordResult.Message);
-                    }
-                    else
-                    {
-                        newBusiness.Latitude = coordResult.Latitude;
-                        newBusiness.Longitude = coordResult.Longitude;
                         var getBusiness = _repository.GetBusinessByName(newBusiness.CompanyName);
                         if (getBusiness == null)
                         {
@@ -109,7 +100,7 @@ namespace BusinessDirectory.Controllers.Api
                             return BadRequest("El nombre que usted introdujo es invalido");
                         }
                     }
-                }
+                
             }
             catch (Exception ex)
             {
@@ -147,22 +138,12 @@ namespace BusinessDirectory.Controllers.Api
                 try
                 {
                     var updBusiness= Mapper.Map<Business>(vm);
-                    var coordResult = await _coordService.GetCoordByAddress(updBusiness.Address);
-                    if (!coordResult.Success)
-                    {
-                        _logger.LogError(coordResult.Message);
-                    }
-                    else
-                    {
-                        updBusiness.Latitude = coordResult.Latitude;
-                        updBusiness.Longitude = coordResult.Longitude;
+                   
                         _repository.UpdateBusiness(updBusiness);
-                        //Save to the database
-                        if (await _repository.SaveChangesAsync())
-                        {
-                            return Ok(Mapper.Map<BusinessViewModel>(updBusiness));
-                        }
-
+                    //Save to the database
+                    if (await _repository.SaveChangesAsync())
+                    {
+                        return Ok(Mapper.Map<BusinessViewModel>(updBusiness));
                     }
 
                     }

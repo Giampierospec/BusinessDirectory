@@ -29,10 +29,6 @@ namespace BusinessDirectory.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<double>("Latitude");
-
-                    b.Property<double>("Longitude");
-
                     b.Property<string>("Phone");
 
                     b.Property<string>("UserName");

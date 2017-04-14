@@ -5,10 +5,18 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BusinessDirectory.Migrations
 {
-    public partial class IdentityRecreate : Migration
+    public partial class IdentityDbCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "Latitude",
+                table: "Businesses");
+
+            migrationBuilder.DropColumn(
+                name: "Longitude",
+                table: "Businesses");
+
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 columns: table => new
@@ -215,6 +223,18 @@ namespace BusinessDirectory.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.AddColumn<double>(
+                name: "Latitude",
+                table: "Businesses",
+                nullable: false,
+                defaultValue: 0.0);
+
+            migrationBuilder.AddColumn<double>(
+                name: "Longitude",
+                table: "Businesses",
+                nullable: false,
+                defaultValue: 0.0);
         }
     }
 }

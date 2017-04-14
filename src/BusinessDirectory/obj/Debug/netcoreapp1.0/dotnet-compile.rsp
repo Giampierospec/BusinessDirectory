@@ -214,8 +214,8 @@ C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirecto
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Controllers\App\AppController.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\20170331212743_InitialDatabase.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\20170331212743_InitialDatabase.Designer.cs
-C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\20170403190704_IdentityRecreate.cs
-C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\20170403190704_IdentityRecreate.Designer.cs
+C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\20170414180340_IdentityDbCreate.cs
+C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\20170414180340_IdentityDbCreate.Designer.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Migrations\BusinessDbContextModelSnapshot.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Models\Business.cs
 C:\Users\giamp\Documents\MEGA\ITLA\TrabajosITLA\Programacion_III\BusinessDirectory\src\BusinessDirectory\Models\BusinessDbContext.cs

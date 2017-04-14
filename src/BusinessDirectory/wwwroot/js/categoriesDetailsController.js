@@ -49,9 +49,7 @@
         for (var bs of businesses) {
             GMaps.geocode({
                 address: bs.address,
-                callback: function (results, status) {
-                    var bsCode = bs;
-                    console.log(results[0]);
+                callback: function (results, status) {                  
                     if (status == "OK") {
                         
                         var latlng = results[0].geometry.location;

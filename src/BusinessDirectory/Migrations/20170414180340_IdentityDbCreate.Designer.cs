@@ -8,8 +8,8 @@ using BusinessDirectory.Models;
 namespace BusinessDirectory.Migrations
 {
     [DbContext(typeof(BusinessDbContext))]
-    [Migration("20170403190704_IdentityRecreate")]
-    partial class IdentityRecreate
+    [Migration("20170414180340_IdentityDbCreate")]
+    partial class IdentityDbCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,10 +29,6 @@ namespace BusinessDirectory.Migrations
                     b.Property<string>("CompanyName");
 
                     b.Property<string>("Description");
-
-                    b.Property<double>("Latitude");
-
-                    b.Property<double>("Longitude");
 
                     b.Property<string>("Phone");
 
